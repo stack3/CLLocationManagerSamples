@@ -20,7 +20,7 @@
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        _locationManager = [[CLLocationManager alloc] init];
+        self.title = @"Get Location";
     }
     return self;
 }
@@ -29,6 +29,9 @@
 {
     [super viewDidLoad];
 
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.delegate = self;
+    
     [_startButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [_startButton addTarget:self action:@selector(didTapStartButton) forControlEvents:UIControlEventTouchUpInside];
     
@@ -36,10 +39,18 @@
     [_stopButton addTarget:self action:@selector(didTapStopButton) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    
+    _locationManager.delegate = nil;
+    _locationManager = nil;
+}
+
 - (void)didTapStartButton
 {
-    _locationManager.delegate = self;
     [_locationManager startUpdatingLocation];
+    
     _startButton.enabled = NO;
     _stopButton.enabled = YES;
     NSLog(@"start updating location. timestamp:%@", [[NSDate date] description]);
@@ -47,7 +58,6 @@
 
 - (void)didTapStopButton
 {
-    _locationManager.delegate = nil;
     [_locationManager stopUpdatingLocation];
     _startButton.enabled = YES;
     _stopButton.enabled = NO;
@@ -61,6 +71,13 @@
     _latitudeField.text = [NSString stringWithFormat:@"%f", recentLocation.coordinate.latitude];
     _longitudeField.text = [NSString stringWithFormat:@"%f", recentLocation.coordinate.longitude];
     NSLog(@"location:%f %f timestamp:%@", recentLocation.coordinate.latitude, recentLocation.coordinate.longitude, recentLocation.timestamp.description);
+    NSLog(@"count:%d", locations.count);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    _latitudeField.text = @"---";
+    _longitudeField.text = @"---";
 }
 
 @end
