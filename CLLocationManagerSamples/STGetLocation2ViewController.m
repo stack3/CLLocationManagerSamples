@@ -2,8 +2,8 @@
 //  STGetLocation2ViewController.m
 //  CLLocationManagerSamples
 //
-//  Created by MIYAMOTO, Hideaki on 2013/08/05.
-//  Copyright (c) 2013年 stack3. All rights reserved.
+//  Created by EIMEI on 2013/08/05.
+//  Copyright (c) 2013 stack3. All rights reserved.
 //
 
 #import "STGetLocation2ViewController.h"
@@ -33,7 +33,7 @@
     _locationManager.delegate = self;
     
     [_getLocationButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
-    [_getLocationButton addTarget:self action:@selector(didTapStartButton) forControlEvents:UIControlEventTouchUpInside];
+    [_getLocationButton addTarget:self action:@selector(didTapGetLocationButton) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewDidUnload
@@ -44,7 +44,7 @@
     _locationManager = nil;
 }
 
-- (void)didTapStartButton
+- (void)didTapGetLocationButton
 {
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     if (!((status == kCLAuthorizationStatusNotDetermined) ||
@@ -57,9 +57,6 @@
         return;
     }
 
-    //
-    // If the status was kCLAuthorizationStatusNotDetermined, the alert that is location service setting will be opened.
-    //
     [_locationManager startUpdatingLocation];
     
     _getLocationButton.enabled = NO;
