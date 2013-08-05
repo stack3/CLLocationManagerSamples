@@ -25,6 +25,8 @@
 		B7F8D89D17AF428C004F009D /* STNavigateLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7F8D89B17AF428C004F009D /* STNavigateLocationViewController.xib */; };
 		B7F8D8A117AF4E30004F009D /* STGetLocation2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7F8D89F17AF4E30004F009D /* STGetLocation2ViewController.m */; };
 		B7F8D8A217AF4E30004F009D /* STGetLocation2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7F8D8A017AF4E30004F009D /* STGetLocation2ViewController.xib */; };
+		B7F8D8B517AF6327004F009D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7F8D8B717AF6327004F009D /* Localizable.strings */; };
+		B7F8D8BA17AF63CC004F009D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7F8D8B917AF63CC004F009D /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,10 @@
 		B7F8D89E17AF4E30004F009D /* STGetLocation2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STGetLocation2ViewController.h; sourceTree = "<group>"; };
 		B7F8D89F17AF4E30004F009D /* STGetLocation2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STGetLocation2ViewController.m; sourceTree = "<group>"; };
 		B7F8D8A017AF4E30004F009D /* STGetLocation2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STGetLocation2ViewController.xib; sourceTree = "<group>"; };
+		B7F8D8B417AF631F004F009D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7F8D8B617AF6327004F009D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B7F8D8B817AF632C004F009D /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B7F8D8B917AF63CC004F009D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,7 @@
 				B731F1C517A5ED5A00148E2F /* Foundation.framework in Frameworks */,
 				B731F1C717A5ED5A00148E2F /* CoreGraphics.framework in Frameworks */,
 				B7EB9BB017AA0349006128F8 /* CoreLocation.framework in Frameworks */,
+				B7F8D8BA17AF63CC004F009D /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				B731F1C217A5ED5A00148E2F /* UIKit.framework */,
+				B7F8D8B917AF63CC004F009D /* MapKit.framework */,
 				B731F1C417A5ED5A00148E2F /* Foundation.framework */,
 				B731F1C617A5ED5A00148E2F /* CoreGraphics.framework */,
 				B7EB9BAF17AA0349006128F8 /* CoreLocation.framework */,
@@ -131,6 +139,7 @@
 				B731F1D417A5ED5B00148E2F /* Default.png */,
 				B731F1D617A5ED5B00148E2F /* Default@2x.png */,
 				B731F1D817A5ED5B00148E2F /* Default-568h@2x.png */,
+				B7F8D8B717AF6327004F009D /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -171,6 +180,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 			);
 			mainGroup = B731F1B617A5ED5A00148E2F;
 			productRefGroup = B731F1C017A5ED5A00148E2F /* Products */;
@@ -195,6 +205,7 @@
 				B7EB9BAE17AA00DE006128F8 /* STGetLocationViewController.xib in Resources */,
 				B7F8D89D17AF428C004F009D /* STNavigateLocationViewController.xib in Resources */,
 				B7F8D8A217AF4E30004F009D /* STGetLocation2ViewController.xib in Resources */,
+				B7F8D8B517AF6327004F009D /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,8 +232,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				B731F1CC17A5ED5B00148E2F /* en */,
+				B7F8D8B417AF631F004F009D /* ja */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B7F8D8B717AF6327004F009D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7F8D8B617AF6327004F009D /* ja */,
+				B7F8D8B817AF632C004F009D /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

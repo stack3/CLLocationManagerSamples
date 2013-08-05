@@ -33,7 +33,7 @@ typedef enum {
         _items = [NSMutableArray arrayWithCapacity:10];
         
         [_items addObject:@"Get Location"];
-        [_items addObject:@"Get Location2"];
+        [_items addObject:@"Get Location 2"];
         [_items addObject:@"Navigate Location"];
     }
     return self;

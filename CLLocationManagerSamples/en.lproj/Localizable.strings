@@ -1,0 +1,8 @@
+/* 
+  Localizable.strings
+  CLLocationManagerSamples
+
+  Created by MIYAMOTO, Hideaki on 2013/08/05.
+  Copyright (c) 2013年 stack3. All rights reserved.
+*/
+"Alert Location Service Disabled" = "Please go to iOS Settings > Privacy > Location Services to enable this app to access your location.";
