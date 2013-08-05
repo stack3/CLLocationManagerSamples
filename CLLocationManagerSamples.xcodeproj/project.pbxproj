@@ -21,6 +21,10 @@
 		B7EB9BAD17AA00DE006128F8 /* STGetLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7EB9BAB17AA00DE006128F8 /* STGetLocationViewController.m */; };
 		B7EB9BAE17AA00DE006128F8 /* STGetLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7EB9BAC17AA00DE006128F8 /* STGetLocationViewController.xib */; };
 		B7EB9BB017AA0349006128F8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7EB9BAF17AA0349006128F8 /* CoreLocation.framework */; };
+		B7F8D89C17AF428C004F009D /* STNavigateLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7F8D89A17AF428C004F009D /* STNavigateLocationViewController.m */; };
+		B7F8D89D17AF428C004F009D /* STNavigateLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7F8D89B17AF428C004F009D /* STNavigateLocationViewController.xib */; };
+		B7F8D8A117AF4E30004F009D /* STGetLocation2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7F8D89F17AF4E30004F009D /* STGetLocation2ViewController.m */; };
+		B7F8D8A217AF4E30004F009D /* STGetLocation2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7F8D8A017AF4E30004F009D /* STGetLocation2ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,12 @@
 		B7EB9BAB17AA00DE006128F8 /* STGetLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STGetLocationViewController.m; sourceTree = "<group>"; };
 		B7EB9BAC17AA00DE006128F8 /* STGetLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STGetLocationViewController.xib; sourceTree = "<group>"; };
 		B7EB9BAF17AA0349006128F8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B7F8D89917AF428C004F009D /* STNavigateLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STNavigateLocationViewController.h; sourceTree = "<group>"; };
+		B7F8D89A17AF428C004F009D /* STNavigateLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STNavigateLocationViewController.m; sourceTree = "<group>"; };
+		B7F8D89B17AF428C004F009D /* STNavigateLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STNavigateLocationViewController.xib; sourceTree = "<group>"; };
+		B7F8D89E17AF4E30004F009D /* STGetLocation2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STGetLocation2ViewController.h; sourceTree = "<group>"; };
+		B7F8D89F17AF4E30004F009D /* STGetLocation2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STGetLocation2ViewController.m; sourceTree = "<group>"; };
+		B7F8D8A017AF4E30004F009D /* STGetLocation2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STGetLocation2ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +110,12 @@
 				B7EB9BAA17AA00DE006128F8 /* STGetLocationViewController.h */,
 				B7EB9BAB17AA00DE006128F8 /* STGetLocationViewController.m */,
 				B7EB9BAC17AA00DE006128F8 /* STGetLocationViewController.xib */,
+				B7F8D89E17AF4E30004F009D /* STGetLocation2ViewController.h */,
+				B7F8D89F17AF4E30004F009D /* STGetLocation2ViewController.m */,
+				B7F8D8A017AF4E30004F009D /* STGetLocation2ViewController.xib */,
+				B7F8D89917AF428C004F009D /* STNavigateLocationViewController.h */,
+				B7F8D89A17AF428C004F009D /* STNavigateLocationViewController.m */,
+				B7F8D89B17AF428C004F009D /* STNavigateLocationViewController.xib */,
 				B731F1C917A5ED5B00148E2F /* Supporting Files */,
 			);
 			path = CLLocationManagerSamples;
@@ -177,6 +193,8 @@
 				B731F1D917A5ED5B00148E2F /* Default-568h@2x.png in Resources */,
 				B7EB9BA917A9EA6C006128F8 /* STViewController.xib in Resources */,
 				B7EB9BAE17AA00DE006128F8 /* STGetLocationViewController.xib in Resources */,
+				B7F8D89D17AF428C004F009D /* STNavigateLocationViewController.xib in Resources */,
+				B7F8D8A217AF4E30004F009D /* STGetLocation2ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +209,8 @@
 				B731F1D317A5ED5B00148E2F /* STAppDelegate.m in Sources */,
 				B731F1DC17A5ED5B00148E2F /* STViewController.m in Sources */,
 				B7EB9BAD17AA00DE006128F8 /* STGetLocationViewController.m in Sources */,
+				B7F8D89C17AF428C004F009D /* STNavigateLocationViewController.m in Sources */,
+				B7F8D8A117AF4E30004F009D /* STGetLocation2ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

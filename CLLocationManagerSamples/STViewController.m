@@ -8,12 +8,15 @@
 
 #import "STViewController.h"
 #import "STGetLocationViewController.h"
+#import "STGetLocation2ViewController.h"
+#import "STNavigateLocationViewController.h"
 
 #define _STCellId @"CellId"
 
 typedef enum {
     _STMenuItemGetLocation,
     _STMenuItemGetLocation2,
+    _STMenuItemNavigateLocation,
 } _STMenuItems;
 
 @implementation STViewController {
@@ -31,6 +34,7 @@ typedef enum {
         
         [_items addObject:@"Get Location"];
         [_items addObject:@"Get Location2"];
+        [_items addObject:@"Navigate Location"];
     }
     return self;
 }
@@ -70,6 +74,11 @@ typedef enum {
         STGetLocationViewController *con = [[STGetLocationViewController alloc] init];
         [self.navigationController pushViewController:con animated:YES];
     } else if (indexPath.row == _STMenuItemGetLocation2) {
+        STGetLocation2ViewController *con = [[STGetLocation2ViewController alloc] init];
+        [self.navigationController pushViewController:con animated:YES];
+    } else if (indexPath.row == _STMenuItemNavigateLocation) {
+        STNavigateLocationViewController *con = [[STNavigateLocationViewController alloc] init];
+        [self.navigationController pushViewController:con animated:YES];
     }
 }
 
