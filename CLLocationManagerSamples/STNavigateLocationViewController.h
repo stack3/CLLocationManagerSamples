@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface STNavigateLocationViewController : UIViewController
+@interface STNavigateLocationViewController : UIViewController<CLLocationManagerDelegate>
 
 @end
