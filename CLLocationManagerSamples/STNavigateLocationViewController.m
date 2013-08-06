@@ -13,6 +13,7 @@
     IBOutlet __weak UILabel *_errorLabel;
     __strong CLLocationManager *_locationManager;
     __strong NSDate *_startUpdatingLocationAt;
+    __strong MKPointAnnotation *_mapAnnotation;
 }
 
 - (id)init
@@ -24,9 +25,16 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.332331, -122.031219), MKCoordinateSpanMake(0.01, 0.01));
     
     _errorLabel.textColor = [UIColor whiteColor];
     _errorLabel.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
@@ -45,16 +53,51 @@
     _locationManager.delegate = nil;
     _locationManager = nil;
 }
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [_locationManager startUpdatingLocation];
     _startUpdatingLocationAt = [NSDate date];
+    [self updateErrorLabelWithIgnoreAuthorized:YES];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleApplicationDidBecomeActive:)
+                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [_locationManager stopUpdatingLocation];
     _startUpdatingLocationAt = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)updateErrorLabelWithIgnoreAuthorized:(BOOL)isIgnoreAuthorized
+{
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    if (isIgnoreAuthorized && (status == kCLAuthorizationStatusAuthorized)) {
+        return;
+    }
+    
+    if (status == kCLAuthorizationStatusAuthorized) {
+        _errorLabel.text = NSLocalizedString(@"Failed to get your location.", nil);
+    } else {
+        _errorLabel.text = NSLocalizedString(@"Alert Location Service Disabled", nil);
+    }
+    _errorLabel.hidden = NO;
+    
+    if (_mapAnnotation) {
+        [_mapView removeAnnotation:_mapAnnotation];
+        _mapAnnotation = nil;
+    }
+}
+
+#pragma mark - NSNotification
+
+- (void)handleApplicationDidBecomeActive:(NSNotification *)notitication
+{
+    [self updateErrorLabelWithIgnoreAuthorized:YES];
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -69,10 +112,11 @@
     
     [_mapView setCenterCoordinate:recentLocation.coordinate animated:YES];
     
-    MKPointAnnotation *mapAnnotation = [[MKPointAnnotation alloc] init];
-    mapAnnotation.coordinate = recentLocation.coordinate;
-    [_mapView removeAnnotations:_mapView.annotations];
-    [_mapView addAnnotation:mapAnnotation];
+    if (_mapAnnotation == nil) {
+        _mapAnnotation = [[MKPointAnnotation alloc] init];
+        [_mapView addAnnotation:_mapAnnotation];
+    }
+    _mapAnnotation.coordinate = recentLocation.coordinate;
  
     _errorLabel.text = nil;
     _errorLabel.hidden = YES;
@@ -82,13 +126,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    if (status == kCLAuthorizationStatusAuthorized) {
-        _errorLabel.text = NSLocalizedString(@"Failed to get your location.", nil);
-    } else {
-        _errorLabel.text = NSLocalizedString(@"Alert Location Service Disabled", nil);
-    }
-    _errorLabel.hidden = NO;
+    [self updateErrorLabelWithIgnoreAuthorized:NO];
 }
 
 @end
