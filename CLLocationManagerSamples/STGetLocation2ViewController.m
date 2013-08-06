@@ -94,6 +94,12 @@
     [_locationManager stopUpdatingLocation];
     
     _getLocationButton.enabled = YES;
+    
+    [[[UIAlertView alloc] initWithTitle:nil
+                                message:NSLocalizedString(@"Failed to get your location.", nil)
+                               delegate:nil
+                      cancelButtonTitle:nil
+                        otherButtonTitles:@"OK", nil] show];
 }
 
 @end
